@@ -2,6 +2,9 @@ package com.example.lms.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "books")
@@ -23,4 +26,8 @@ public class Book {
 
     @Column(nullable = false)
     private boolean available;
+
+    @Column(nullable = false, updatable = false)
+    @CreationTimestamp
+    private Date created_at;
 }
